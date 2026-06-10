@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mihlali Momoza — Systems Integrator</title>
 <meta name="description" content="From Life Choices to Systems Integrator. AWS. Ansible. NGINX. Cape Town.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bebas+Neue&family=Barlow+Condensed:wght@100;200;300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -51,8 +51,11 @@ body.cm #cur{width:5px;height:5px}
 nav{position:fixed;top:0;left:0;right:0;z-index:500;transition:transform .35s cubic-bezier(.16,1,.3,1)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(7,8,14,0.82);backdrop-filter:blur(20px);border-bottom:1px solid transparent;transition:border-color .3s}
 nav.scrolled .nav-inner{border-color:var(--border)}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:3px;color:var(--accent);text-decoration:none;opacity:0;animation:fD .7s .2s forwards;display:flex;flex-direction:column;line-height:1}
-.nav-logo-sub{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-family:var(--mono)}
+.nav-logo{text-decoration:none;opacity:0;animation:fD .7s .2s forwards;display:flex;flex-direction:column;line-height:1;gap:2px}
+.nav-logo-mm{display:flex;align-items:baseline;gap:1px}
+.nav-mm-white{font-family:'Barlow Condensed',sans-serif;font-weight:200;font-size:28px;color:var(--white);letter-spacing:0;line-height:1}
+.nav-mm-gold{font-family:'Barlow Condensed',sans-serif;font-weight:200;font-size:28px;color:transparent;-webkit-text-stroke:1px var(--accent);letter-spacing:0;line-height:1;text-shadow:0 0 8px rgba(200,169,110,0.3)}
+.nav-logo-sub{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-family:var(--mono);display:flex;align-items:center;gap:6px}
 .nav-pill{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:40px;padding:5px 6px;opacity:0;animation:fD .7s .35s forwards}
 .nav-pill a{color:var(--muted2);text-decoration:none;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;padding:7px 18px;border-radius:30px;transition:all .25s;font-weight:500;position:relative}
 .nav-pill a:hover{color:var(--text);background:rgba(255,255,255,0.05)}
@@ -92,11 +95,11 @@ nav.scrolled .nav-inner{border-color:var(--border)}
 .hero-left{display:flex;flex-direction:column;justify-content:center;padding:60px 48px;position:relative;z-index:2}
 .eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;gap:12px;opacity:0;animation:fU .8s .5s forwards}
 .eyebrow-slash{color:var(--accent)}
-.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,10vw,130px);line-height:.86;letter-spacing:-2px;margin-bottom:4px}
+.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,10vw,130px);line-height:.9;margin-bottom:4px}
 .hero-name .w{display:block;overflow:hidden}
 .hero-name .w span{display:inline-block;opacity:0;animation:drop 1s cubic-bezier(.16,1,.3,1) forwards}
-.hero-name .w:nth-child(1) span{animation-delay:.4s;color:var(--white)}
-.hero-name .w:nth-child(2) span{animation-delay:.6s;color:transparent;-webkit-text-stroke:2.5px var(--accent)}
+.hero-name .w:nth-child(1) span{animation-delay:.4s;color:var(--white);font-family:'Barlow Condensed',sans-serif;font-weight:200;letter-spacing:8px;text-transform:uppercase}
+.hero-name .w:nth-child(2) span{animation-delay:.6s;color:rgba(255,255,255,0.08);-webkit-text-stroke:1px var(--accent);font-family:'Barlow Condensed',sans-serif;font-weight:200;letter-spacing:8px;text-transform:uppercase;text-shadow:0 0 40px rgba(200,169,110,0.2)}
 .hero-divider{height:2px;background:linear-gradient(90deg,var(--accent),transparent);border-radius:1px;margin:16px 0 20px;width:0;opacity:0;animation:divW 1s .8s forwards}
 @keyframes divW{to{width:100%;opacity:1}}
 .hero-subtitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,3vw,34px);letter-spacing:5px;color:var(--accent);margin-bottom:20px;opacity:0;animation:fU .8s .85s forwards}
@@ -132,13 +135,13 @@ nav.scrolled .nav-inner{border-color:var(--border)}
 .hrc-item::before{content:'▸';color:var(--accent);font-size:9px}
 
 /* GLOBE SECTION */
-.globe-section{padding:80px 48px;background:var(--bg2);position:relative;z-index:2;overflow:hidden}
-.globe-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:center}
-.globe-wrap{position:relative;display:flex;flex-direction:column;align-items:center}
-#globe-canvas{display:block;border-radius:50%;width:420px;height:420px;box-shadow:0 0 60px rgba(200,169,110,0.15),0 0 120px rgba(0,8,32,0.8)}
-.globe-label{font-family:var(--mono);font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-top:14px;text-align:center}
-.globe-info h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4vw,52px);color:var(--white);line-height:.92;margin-bottom:20px;letter-spacing:-.5px}
-.globe-info p{color:var(--muted2);font-size:14px;line-height:1.8;font-weight:300;margin-bottom:16px}
+.globe-section{padding:80px 48px;background:var(--bg2);position:relative;z-index:2;overflow:hidden;box-sizing:border-box}
+.globe-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:480px 1fr;gap:60px;align-items:center}
+.globe-wrap{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#globe-canvas{display:block;border-radius:50%;width:440px;height:440px;box-shadow:0 0 60px rgba(200,169,110,0.15),0 0 120px rgba(0,8,32,0.8)}
+.globe-label{font-family:var(--mono);font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--muted);margin-top:20px;text-align:center;opacity:.7}
+.globe-info h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.5vw,48px);color:var(--white);line-height:.92;margin-bottom:20px;letter-spacing:-.5px}
+.globe-info p{color:var(--muted2);font-size:13px;line-height:1.8;font-weight:300;margin-bottom:16px;word-wrap:break-word;overflow-wrap:break-word}
 .globe-info p strong{color:var(--text);font-weight:500}
 .globe-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 
@@ -315,7 +318,7 @@ footer{padding:32px 48px;border-top:1px solid var(--border);display:flex;justify
 .ft{font-size:11px;color:var(--muted);font-family:var(--mono)}
 
 /* RESPONSIVE */
-@media(max-width:1100px){.hero{grid-template-columns:1fr}.hero-right{display:none}.globe-inner{grid-template-columns:1fr;text-align:center}.globe-badges{justify-content:center}}
+@media(max-width:1200px){.globe-inner{grid-template-columns:420px 1fr;gap:40px}}@media(max-width:1100px){.hero{grid-template-columns:1fr}.hero-right{display:none}.globe-inner{grid-template-columns:1fr;text-align:center}.globe-badges{justify-content:center}.globe-info p{font-size:13px}}
 @media(max-width:900px){.sec{padding:80px 32px}.globe-section{padding:80px 32px}.about-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.proj-grid{grid-template-columns:1fr}.exp-item{grid-template-columns:1fr}.exp-num{display:none}footer{padding:28px 32px}}
 @media(max-width:600px){.sec{padding:64px 20px}.globe-section{padding:64px 20px}.hero-left{padding:48px 20px}.hero-stats{grid-template-columns:repeat(2,1fr)}.fg-row{grid-template-columns:1fr}.nav-mobile-inner{padding:16px 20px 24px}footer{padding:20px;flex-direction:column;text-align:center}}
 </style>
@@ -331,7 +334,7 @@ footer{padding:32px 48px;border-top:1px solid var(--border);display:flex;justify
 <nav id="nav">
   <div class="nav-inner">
     <a class="nav-logo" href="#hero">
-      MM
+      <div class="nav-logo-mm"><span class="nav-mm-white">M</span><span class="nav-mm-gold">M</span></div>
       <span class="nav-logo-sub">Secure.Smart.Scalable</span>
     </a>
     <div class="nav-pill">
@@ -474,9 +477,9 @@ footer{padding:32px 48px;border-top:1px solid var(--border);display:flex;justify
       <p>Over 4 years I moved from <strong>coding student to infrastructure engineer</strong> — now owning AWS deployments, Ansible automation, and security layers for enterprise insurance platforms serving clients globally.</p>
       <p>When systems break, I'm in the logs. I investigate root causes, write the <strong>automation that prevents recurrence</strong>, and document it so the team moves faster.</p>
       <div class="globe-badges">
-        <div class="badge"><div class="badge-dot"></div>Enterprise Scale</div>
-        <div class="badge"><div class="badge-dot"></div>Security First</div>
-        <div class="badge"><div class="badge-dot"></div>Always Learning</div>
+        <div class="badge">Enterprise Scale</div>
+        <div class="badge">Security First</div>
+        <div class="badge">Always Learning</div>
       </div>
     </div>
   </div>
